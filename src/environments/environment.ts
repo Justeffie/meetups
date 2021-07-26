@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  default_locaction: {
+    latitude: -34.6154611,
+    longitude: -58.5733847
+  },
+  apiHost: 'http://localhost:3000/',
+  apiBase: 'api/',
+  meetups: 'meetups',
+  weathers: 'weathers',
+  users: 'users',
+  register: 'register',
+  singup: 'singup',
+  api_key: 'adb76e05631e5273d653adfa1a9bc955',
+  darkSkyUrl: 'https://api.darksky.net/forecast/'
 };
 
 /*

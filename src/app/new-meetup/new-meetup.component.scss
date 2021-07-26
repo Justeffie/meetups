@@ -1,0 +1,38 @@
+.form {
+  margin: 100px auto 100px auto;
+  width: 90%;
+  display: flex;
+
+  form {
+    margin: 0 auto;
+    width: 90%;
+
+    mat-form-field {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    div {
+      width: 90%;
+      margin: 0 auto;
+
+      p {
+        color: red;
+      }
+    }
+
+    .buttons {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+
+      button:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+
+
+}

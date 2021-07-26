@@ -1,0 +1,37 @@
+.sidenav-container {
+  height: 100%;
+
+  mat-sidenav {
+    height: 100%;
+    width: 17%;
+  }
+
+  mat-sidenav-content {
+
+    mat-toolbar {
+      position: fixed;
+      z-index: 1000;
+    }
+  }
+}
+
+
+@media (max-width: 944px) {
+  .sidenav-container {
+
+    mat-sidenav {
+      width: 50%;
+    }
+  }
+
+}
+
+
+@media (max-width: 320px) {
+  .sidenav-container {
+
+    mat-sidenav {
+      width: 70%;
+    }
+  }
+}

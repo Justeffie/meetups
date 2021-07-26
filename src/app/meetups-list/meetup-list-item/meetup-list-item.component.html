@@ -1,0 +1,35 @@
+<span class="date">
+  {{meetup.datetime | date:'fullDate'}} - {{ meetup.datetime | date:'shortTime'}}hs
+</span>
+<mat-card class="card-container">
+  <div class="card-img-container">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  </div>
+  <div class="card-content-container">
+    <div class="card-title-container">
+      <mat-card-title>{{ meetup.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="location">
+          <mat-icon>location_on</mat-icon>
+          {{ meetup.location }}&nbsp; -
+        </div>
+        <div class="temperature">
+          <mat-icon>thermostat</mat-icon>
+          Min: {{ weather?.temperatureMin }}°C - Max: {{ weather?.temperatureMax }}°C
+        </div>
+      </mat-card-subtitle>
+    </div>
+    <div class="card-content">
+      <mat-card-content>
+        <p>
+          {{ meetup.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </div>
+  </div>
+</mat-card>
+

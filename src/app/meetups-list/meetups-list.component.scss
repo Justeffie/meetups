@@ -1,0 +1,23 @@
+.meetups-list-container {
+  margin: 90px 30px 30px 30px;
+}
+
+@media (max-width: 820px) {
+  .meetups-list-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    app-meetup-list-item {
+      flex-basis: 45%;
+    }
+  }
+
+}
+
+@media (max-width: 474px) {
+  .meetups-list-container {
+    flex-direction: column;
+  }
+
+}

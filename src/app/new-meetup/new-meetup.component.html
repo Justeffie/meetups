@@ -1,0 +1,88 @@
+<div class="form">
+  <form [formGroup]="newForm">
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Título
+      </mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <div *ngIf=" newForm.get('title').touched && newForm.get('title').invalid">
+      <p class="alert-message">El campo es requerido</p>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Descripción
+      </mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <div *ngIf="newForm.get('description').touched && newForm.get('description').invalid">
+      <p class="alert-message" *ngIf="newForm.get('description').errors?.required">El campo es requerido </p>
+      <p class="alert-message" *ngIf="newForm.get('description').errors?.maxlength">El campo es debe tener 250 caracteres </p>
+      <p class="alert-message" *ngIf="newForm.get('description').errors?.pattern">El campo es debe ser un número</p>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Dirección
+      </mat-label>
+      <input matInput formControlName="location">
+    </mat-form-field>
+    <div *ngIf="newForm.get('location').touched && newForm.get('location').invalid">
+      <p class="alert-message" *ngIf="newForm.get('location').errors?.required">El campo es requerido </p>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Seleccione una fecha</mat-label>
+      <input matInput
+             formControlName="datetime"
+             [matDatetimepicker]="picker"
+             autocomplete="false"
+             [min]="min"
+             [max]="max"
+              (dateChange)="getWeekWeather()" >
+      <mat-datetimepicker-toggle matSuffix [for]="picker"></mat-datetimepicker-toggle>
+      <mat-datetimepicker #picker type="datetime" openOnFocus="true" timeInterval="5"></mat-datetimepicker>
+    </mat-form-field>
+    <div *ngIf="newForm.get('datetime').touched && newForm.get('datetime').invalid">
+      <p class="alert-message" *ngIf="newForm.get('datetime').errors?.required">El campo es requerido </p>
+      <p class="alert-message" *ngIf="wrongDate">El campo es inválido</p>
+    </div>
+    <div *ngIf="newForm.get('datetime').value && newForm.get('location').value && currentWeather">
+      <mat-form-field appearance="fill">
+        <mat-label>
+          Temperatura
+        </mat-label>
+        <input
+          readonly
+          matInput
+          value="Min: {{farenheitToCelsius(currentWeather?.temperatureMin) | number: '2.0-1'}}°C - Max: {{farenheitToCelsius(currentWeather?.temperatureMax) | number: '2.0-1'}}°C "
+          (change)="amountOfBirras()"
+        >
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Cantidad de participantes
+      </mat-label>
+      <input matInput formControlName="total_guests" (change)="amountOfBirras()" >
+    </mat-form-field>
+    <div *ngIf="newForm.get('total_guests').touched && newForm.get('total_guests').invalid">
+      <p class="alert-message" *ngIf="newForm.get('total_guests').errors?.required">El campo es requerido </p>
+      <p class="alert-message" *ngIf="newForm.get('total_guests').errors?.pattern">El campo debe ser numérico</p>
+    </div>
+    <div *ngIf="newForm.get('datetime').value
+                && newForm.get('location').value
+                && newForm.get('total_guests').value
+                && newForm.get('datetime').valid
+                && newForm.get('total_guests').valid">
+      <mat-form-field appearance="fill">
+        <mat-label>
+          Cantidad de birras
+        </mat-label>
+        <input readonly matInput formControlName="total_birras">
+      </mat-form-field>
+    </div>
+    <div class="buttons">
+      <button type="button" color="warn" mat-raised-button (click)="goBack()">Cancelar</button>
+      <button type="button" color="primary" mat-raised-button [disabled]="newForm.invalid">Crear</button>
+    </div>
+  </form>
+</div>

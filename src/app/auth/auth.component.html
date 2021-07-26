@@ -1,0 +1,54 @@
+<div class="form">
+  <form [formGroup]="authForm">
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Nombre
+      </mat-label>
+      <input matInput formControlName="nombre">
+    </mat-form-field>
+    <div *ngIf=" authForm.get('nombre').touched && authForm.get('nombre').invalid">
+      <p class="alert-message">El campo es requerido</p>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Apellido
+      </mat-label>
+      <textarea matInput formControlName="apellido"></textarea>
+    </mat-form-field>
+    <div *ngIf="authForm.get('apellido').touched && authForm.get('apellido').invalid">
+      <p class="alert-message">El campo es requerido </p>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>
+        Edad
+      </mat-label>
+      <input matInput formControlName="edad">
+    </mat-form-field>
+    <div *ngIf="authForm.get('edad').touched && authForm.get('edad').invalid">
+      <p class="alert-message" *ngIf="authForm.get('edad').errors?.required">El campo es requerido </p>
+      <p class="alert-message" *ngIf="authForm.get('edad').errors?.pattern">El campo es debe ser un número</p>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput
+             formControlName="email" >
+    </mat-form-field>
+    <div *ngIf="authForm.get('email').touched && authForm.get('email').invalid">
+      <p class="alert-message" *ngIf="authForm.get('email').errors?.required">El campo es requerido</p>
+      <p class="alert-message" *ngIf="authForm.get('email').errors?.email">El campo es inválido</p>
+    </div>
+      <mat-form-field appearance="fill">
+        <mat-label>
+          Password
+        </mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
+    <div *ngIf="authForm.get('password').touched && authForm.get('password').invalid">
+      <p class="alert-message">El campo es requerido </p>
+    </div>
+    <div class="buttons">
+      <button type="button" color="warn" mat-raised-button>Iniciar Sesión</button>
+      <button type="button" color="primary" mat-raised-button [disabled]="authForm.invalid">Registrar</button>
+    </div>
+  </form>
+</div>

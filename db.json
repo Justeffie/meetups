@@ -1,0 +1,90 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Bruno",
+        "surname": "Aquino",
+        "age": 25,
+        "email": "bruno@email.com",
+        "password": "bruno1234",
+        "meetups_created":[],
+        "meetups_in": [1, 2]
+      },
+      {
+        "id": 2,
+        "name": "Nilson",
+        "surname": "Liam",
+        "age": 23,
+        "email": "nilson@email.com",
+        "password": "liam1234",
+        "meetups_created":[1, 2],
+        "meetups_in": []
+      }
+    ],
+    "meetups": [
+      {
+        "id": 1,
+        "title": "Encuentro de programadores",
+        "description": "Un encuentro para reencontrarnos, charlar de cosas nerds y tomar unas birras",
+        "location": "Buenos Aires",
+        "datetime": 1617850800,
+        "total_birras": 200,
+        "total_guests": 100,
+        "users_in": [1],
+        "weather": [1]
+      },
+      {
+        "id": 2,
+        "title": "Workshop de Deno",
+        "description": "Un encuentro para charlar y aprender un poco más sobre Deno",
+        "location": "Buenos Aires",
+        "datetime": 1617764400,
+        "total_birras": 200,
+        "total_guests": 100,
+        "users_in": [1],
+        "weather": [2]
+      },
+      {
+        "id": 3,
+        "title": "Encuentro de programadores",
+        "description": "Un encuentro para reencontrarnos, charlar de cosas nerds y tomar unas birras",
+        "location": "Buenos Aires",
+        "datetime": 1617850800,
+        "total_birras": 200,
+        "total_guests": 100,
+        "users_in": [1],
+        "weather": [1]
+      },
+      {
+        "id": 4,
+        "title": "Workshop de Deno",
+        "description": "Un encuentro para charlar y aprender un poco más sobre Deno",
+        "location": "Buenos Aires",
+        "datetime": 1617764400,
+        "total_birras": 200,
+        "total_guests": 100,
+        "users_in": [1],
+        "weather": [2]
+      }
+    ],
+    "weathers": [
+      {
+        "id": 1,
+        "datetime": "1617850800",
+        "summary": "Posible lluvia ligera hasta por la tarde, comenzando otra vez por la noche.",
+        "location": "Buenos Aires",
+        "temperatureMin": 20.5,
+        "temperatureMax": 29.1,
+        "humidity": 69
+      },
+      {
+        "id": 2,
+        "datetime": "1617764400",
+        "summary": "Despejado durante el día.",
+        "location": "Buenos Aires",
+        "temperatureMin": 20.2,
+        "temperatureMax": 30.5,
+        "humidity": 69
+      }
+    ]
+}
